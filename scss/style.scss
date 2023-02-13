@@ -1,3 +1,67 @@
+@import "coresFontes.scss";
 *{
-    
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
 }
+body{
+    background-color: $Off-white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    min-width: 100vw;
+    height: 100vh;
+    padding: 20px;  
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    
+    nav{//desaparendo com a tag nav, vou fazer mostrar novamente com js
+        display: none;
+    }
+
+    //estilo para img que estão dentro do header
+    img{
+        width: 35px;
+    }
+    
+    //estilo dos link
+    a{
+        font-family: $fonteInter;
+        font-weight: $fonte-weight-400;
+        margin: 1rem 0px;
+        padding: 0px 1rem;
+        color: $Verydarkblue;
+    }
+}
+
+
+// A div que armazena o botão que tem a função de fechar
+div.menuFechar{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    button{ // botão de fechar estilo
+        padding: 20px;
+        outline: 0;
+        font-family: $fonteInter;
+        font-weight: $fonte-weight-800;
+        background-color: transparent;
+    }
+}
+
+//vou atribuir esse estilo para seletor nav.
+.menuHabilitado{
+    display: flex !important;
+    position: absolute;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    background-color: $Grayishblue;
+    top: 0;
+    right: 0;
+}
+
+

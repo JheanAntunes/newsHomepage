@@ -1,1 +1,61 @@
-@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+}
+
+body {
+  background-color: hsl(36deg, 100%, 99%);
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  min-width: 100vw;
+  height: 100vh;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+header nav {
+  display: none;
+}
+header img {
+  width: 35px;
+}
+header a {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  margin: 1rem 0px;
+  padding: 0px 1rem;
+  color: hsl(240deg, 100%, 5%);
+}
+
+div.menuFechar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+div.menuFechar button {
+  padding: 20px;
+  outline: 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  background-color: transparent;
+}
+
+.menuHabilitado {
+  display: flex !important;
+  position: absolute;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  background-color: hsl(233deg, 8%, 79%);
+  top: 0;
+  right: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
