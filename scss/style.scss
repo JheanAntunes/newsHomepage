@@ -7,36 +7,38 @@
     border: none;
 }
 body{
-    background-color: $Off-white;
-    font-family: Arial, Helvetica, sans-serif;
     position: relative;
-    min-width: 100vw;
-    height: 100vh;
-    padding: 20px;  
+    background-color: $Off-white;
+    font-family: Arial, Helvetica, sans-serif;    
 }
 header{
     display: flex;
     justify-content: space-between;
+    padding: $padding;
     
-    nav{//desaparendo com a tag nav, vou fazer mostrar novamente com js
-        display: none;
-    }
-
     //estilo para img que estão dentro do header
     img{
         width: 35px;
+    }
+    //Essa id vai receber display none para esconder o seletor nav
+    #janelaMenu{
+        display: none;
+    }
+    nav{//desaparendo com a tag nav,vou atribuir a class menuhabilitado com js
     }
     
     //estilo dos link
     a{
         font-family: $fonteInter;
         font-weight: $fonte-weight-400;
-        margin: 1rem 0px;
-        padding: 0px 1rem;
+        padding:1rem;
         color: $Verydarkblue;
     }
 }
 
+button{
+    background-color: transparent;
+}
 
 // A div que armazena o botão que tem a função de fechar
 div.menuFechar{
@@ -44,8 +46,9 @@ div.menuFechar{
     justify-content: flex-end;
     margin-bottom: 1rem;
     button{ // botão de fechar estilo
-        padding: 20px;
         outline: 0;
+        padding: 5px;
+        margin-bottom: 1rem;
         font-family: $fonteInter;
         font-weight: $fonte-weight-800;
         background-color: transparent;
@@ -54,14 +57,356 @@ div.menuFechar{
 
 //vou atribuir esse estilo para seletor nav.
 .menuHabilitado{
-    display: flex !important;
+    display: flex;
     position: absolute;
     flex-direction: column;
     width: 50%;
     height: 100%;
-    background-color: $Grayishblue;
+    background-color: $Off-white;
     top: 0;
     right: 0;
+    box-shadow: 0px 0px 3px;
+}
+
+// a sombra de quando abrir a janela do menu
+.sombra{
+    position: absolute;
+    background-color: $Darkgrayishblue;
+    width: 50%;
+    height: 100%;
+    opacity: 50%;
+    filter: contrast(50%);
+}
+
+//========== MAIN ========== 
+main{
+    padding: $padding;
+    font-family: $fonteInter;
+}
+div.imgPrincipal{
+    background: $Off-white url(../assets/images/image-web-3-mobile.jpg) no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
+
+//para não ficar repetindo código.
+@mixin fonteCor($fonteWeight,$fonteSize,$color){
+    font-weight: $fonteWeight;
+    font-size: $fonteSize;
+    color: $color;
+}
+
+//========== MAIN SECTION 1 ========== 
+//texto subTitulo
+main section.futureweb h2{
+    @include fonteCor($fonte-weight-800,1.7rem,$Verydarkblue );
+    margin: $margin-bottom 0px;
+
+}
+//texto paragrafo
+main section.futureweb p{
+    @include fonteCor($fonte-weight-400,.8rem,$Darkgrayishblue );
+    margin-bottom: $margin-bottom;
+}
+//texto button
+main section.futureweb button{
+    @include fonteCor($fonte-weight-700,.8rem,$Off-white);
+    background-color: $Softred;
+    padding: 10px 1rem;
+    border-radius: 5px;
+    margin-bottom: $margin-bottom;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.445);
+}
+
+//========== MAIN SECTION 2 ========== 
+main section.new{
+    background-color: $Verydarkblue;
+}
+//texto subTitulo
+main section.new h2#personalizado{
+    @include fonteCor($fonte-weight-700,.1.5rem,$Softorange);
+    padding: $padding;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.445);
+}
+//texto subtitulo
+main section.new h2{
+    @include fonteCor($fonte-weight-800,1.4rem,$Off-white);
+    padding: 0px 1rem;
+}
+//texto paragrafo
+main section.new p{
+    @include fonteCor($fonte-weight-400,1rem,$Darkgrayishblue);
+    padding: 1rem 0rem 1rem 1rem;
+}
+
+main section.new hr{
+   border: 1px solid $Darkgrayishblue;
+   margin: 1rem;
+}
+
+//========== FOOTER ========== 
+footer{
+    padding: $padding;
+    display: grid;
+    grid-template-columns: 80px 50%;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 1.3rem;
+    column-gap:.5rem;
+}
+
+footer div.imgFooter1{
+    background: $Off-white url(../assets/images/image-retro-pcs.jpg)no-repeat center center;
+    background-size: cover;
+}
+footer div.imgFooter2{
+    background: $Off-white url(../assets/images/image-top-laptops.jpg)no-repeat center center;
+    background-size: cover;
+}
+footer div.imgFooter3{
+    background: $Off-white url(../assets/images/image-gaming-growth.jpg)no-repeat center center;
+    background-size: cover;
+}
+
+footer section span{
+    @include fonteCor($fonte-weight-700,2rem, $Grayishblue);
+}
+
+footer section h2{
+    @include fonteCor($fonte-weight-800,1.2rem, $Verydarkblue);
+    margin-bottom: 0.5rem;
+}
+
+footer section p{
+    @include fonteCor($fonte-weight-400,0.8rem, $Darkgrayishblue);
 }
 
 
+/* Extra small devices (phones, 600px and down) */
+// @media only screen and (max-width: 600px) {...}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+// @media only screen and (min-width: 600px) {...}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    main{
+        display: grid;
+        grid-template-areas: 
+            "i i n"
+            "s s n";
+        column-gap: 2rem;
+        padding: 1rem;
+    }
+
+    header{
+        padding: 1rem;
+    }
+
+    .imgPrincipal{
+        grid-area: i;
+        background-image: url(../assets/images/image-web-3-mobile.jpg);
+    }
+    
+    section.futureweb{
+        grid-area: s;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    main section.futureweb h2{
+        font-size: 1.5rem;
+        font-weight: $fonte-weight-800;
+        padding: .6rem;
+    }
+    main section.futureweb div.mobileDesktopSepararPB p{
+        font-size: 1rem;
+        font-weight: $fonte-weight-700;
+    }
+    main section.futureweb div.mobileDesktopSepararPB button{
+        padding: .8rem 2rem;
+        cursor: pointer;
+    }
+
+    section.new{
+        grid-area: n;
+    }
+
+    div.agruparHeaderMain{
+        min-width: 768px;
+        max-width: 992px;
+    }
+    
+    div.mobileDesktopSepararPB{
+        margin-top: 1rem;
+        width: 80%;
+        padding: .3rem;
+    }
+     
+    body{
+        display: flex;
+        justify-content: center;
+    }
+    
+    footer{
+        display: flex !important;
+        flex-grow: 1fr;
+        padding: $padding;
+    }
+
+    footer section{
+        width: 190px;
+    }
+
+    .imgFooter1{
+        width: 17%;
+        height: 180px;
+    }
+    
+    .imgFooter2{
+        width: 17%;
+        height: 180px;
+    }
+    
+    .imgFooter3{
+        width: 17%;
+        height: 180px;
+    }
+    
+    footer section span{
+        font-size: 1.5rem;
+    }
+    
+    footer section h2{
+        font-size: 1rem;
+        font-weight: $fonte-weight-800;
+        margin-bottom: 0.5rem;
+    }
+    footer section p{
+        font-size: 1rem;
+        font-weight: $fonte-weight-700;
+    }
+
+    // === Hover ===
+    main section.new h2{
+        &:hover{
+            color: $Softorange;
+            cursor: pointer;
+        }
+    }
+    nav a{
+        &:hover{
+            color: $Softorange;
+        }
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+ @media only screen and (min-width: 992px) {
+    main{
+        display: grid;
+        grid-template-areas: 
+            "i i n"
+            "s s n";
+        column-gap: 2rem;
+        padding: 1rem;
+    }
+
+    header{
+        padding: 1rem;
+    }
+
+    .imgPrincipal{
+        grid-area: i;
+        background-image: url(../assets/images/image-web-3-mobile.jpg);
+    }
+    
+    section.futureweb{
+        grid-area: s;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    main section.futureweb h2{
+        font-size: 2rem;
+        font-weight: $fonte-weight-800;      
+        padding-left: .3rem;  
+    }
+    main section.futureweb div.mobileDesktopSepararPB p{
+        font-size: 1rem;
+        font-weight: $fonte-weight-700;
+    }
+    main section.futureweb div.mobileDesktopSepararPB button{
+        padding: .8rem 2rem;
+        cursor: pointer;
+    }
+
+    section.new{
+        grid-area: n;
+    }
+    
+    div.mobileDesktopSepararPB{
+        margin-top: 1rem;
+        width: 80%;
+        padding: .3rem;
+    }
+     
+    body{
+        display: flex;
+        justify-content: center;
+    }
+    
+    footer{
+        display: flex !important;
+        flex-grow: 1fr;
+        padding: $padding;
+    }
+
+    footer section{
+        width: 190px;
+    }
+
+    .imgFooter1{
+        width: 17%;
+        height: 180px;
+    }
+    
+    .imgFooter2{
+        width: 17%;
+        height: 180px;
+    }
+    
+    .imgFooter3{
+        width: 17%;
+        height: 180px;
+    }
+    
+    footer section span{
+        font-size: 1.5rem;
+    }
+    
+    footer section h2{
+        font-size: 1rem;
+        font-weight: $fonte-weight-800;
+        margin-bottom: 0.5rem;
+    }
+    footer section p{
+        font-size: 1rem;
+        font-weight: $fonte-weight-700;
+    }
+
+    // === Hover ===
+    main section.new h2{
+        &:hover{
+            color: $Softorange;
+            cursor: pointer;
+        }
+    }
+    nav a{
+        &:hover{
+            color: $Softorange;
+        }
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
